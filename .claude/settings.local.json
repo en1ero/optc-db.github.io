@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:\\Users\\mhartung\\git\\optc-db.github.io\\res\"\" 2>&1 || echo \"Could not list res folder \")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
