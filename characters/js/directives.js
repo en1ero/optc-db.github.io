@@ -117,7 +117,7 @@
 				// pick column link
 				var pick = $(
 					'<a id="pick-link" popover-placement="bottom" popover-trigger="click" popover-title="Additional Columns" ' +
-						"uib-popover-template=\"'views/pick.html'\" popover-append-to-body=\"'true'\">Additional columns</a>"
+						"uib-popover-template=\"'characters/views/pick.html'\" popover-append-to-body=\"'true'\">Additional columns</a>"
 				);
 				$compile(pick)(scope);
 				pick.insertAfter($(".dataTables_length"));
@@ -230,7 +230,7 @@
 		return {
 			restrict: "E",
 			replace: true,
-			templateUrl: "views/custom-filters.html",
+			templateUrl: "characters/views/custom-filters.html",
 			scope: { target: "@", filterData: "=", filters: "=" },
 			link: function (scope, element, attrs) {
 				// turns off all other options in a radio group
@@ -306,7 +306,7 @@
 			restrict: "E",
 			replace: true,
 			scope: { unit: "=", base: "=", evolvers: "=", evolution: "=", size: "@" },
-			templateUrl: "views/evolution.html",
+			templateUrl: "characters/views/evolution.html",
 			link: function (scope, element, attrs) {
 				scope.goToState = function (id) {
 					if (!Number.isInteger(id)) return;

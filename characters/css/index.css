@@ -9,6 +9,7 @@ transform: scale(1, -1);
 }
 */
 
+/* Legacy icomoon font - now using FontAwesome
 @font-face {
 	font-family: 'icomoon';
 	src:url('../../res/icomoon.eot?xewvs9');
@@ -19,6 +20,7 @@ transform: scale(1, -1);
 	font-weight: normal;
 	font-style: normal;
 }
+*/
 
 body, html {
     height: 100%;
