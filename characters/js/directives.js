@@ -108,12 +108,6 @@
 						element.fnDraw();
 					});
 				};
-				// report link
-				var link = $(
-					'<span class="help-link"><i class="fab fa-discord"></i> Want to report or request something? <a>Join our Discord server</a>.</span>'
-				);
-				link.find("a").attr("href", "https://discord.gg/xhKT87vKX7");
-				link.insertAfter($(".dataTables_length"));
 				// pick column link
 				var pick = $(
 					'<a id="pick-link" popover-placement="bottom" popover-trigger="click" popover-title="Additional Columns" ' +
