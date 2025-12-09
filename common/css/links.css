@@ -1,9 +1,5 @@
 /* Adapted from http://codepen.io/suez/pen/vAais */
 
-#dismissalBody {
-    font-size: 0.8em;
-}
-
 #links-button {
     position: fixed;
     bottom: 20px;
@@ -245,24 +241,11 @@
 
 #link-damage > .btn { background: #85C1F5; }
 #link-characters > .btn { background: #7FCA9F; }
-#link-drops > .btn { background: #F4BA70; }
-#link-tally > .btn { background: #E96D63; }
-#link-report > .btn { background: orchid; }
-#link-slots > .btn { background: #99cc66; }
 #links-home > .btn { background: #939393; }
-#link-prob > .btn { background: #DEA5A4; }
 #link-ship > .btn { background: #9932CC; }
-#link-planner > .btn { background: #DAAD13; }
-#link-nakama > .btn { background: #3c6ee0; }
 #link-supports > .btn { background: #2ECC71; }
-#link-turtles > .btn { background: #ce4500; }
-#link-es > .btn { background: linear-gradient(#ff0000 30%, #ffff00 30%, #ffff00 70%, #ff0000 30%); }
-#link-fr > .btn { background: url("https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"); background-size: 100%; background-position: center; }
-#link-de > .btn { background: url("https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg"); background-size: 200%; background-position: center; }
-#link-ko > .btn { background: url("https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg"); background-size: 120%; background-position: center; }
 #link-reddit > .btn { background: url("https://www.redditinc.com/assets/images/site/reddit-logo.png"); background-size: 100%; }
 #link-github > .btn { background: url("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"); background-size: 100%; }
-#link-discord > .btn { background: url("https://www.freepnglogos.com/uploads/discord-logo-png/discord-logo-logodownload-download-logotipos-1.png"); background-size: 120%; background-position: center; }
 
 .tip { color: black; }
 
