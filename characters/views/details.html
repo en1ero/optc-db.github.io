@@ -1466,26 +1466,7 @@
     </tbody>
 </table>
 
-<!-- Tandems -->
-
-<h3 class="page-header" ng-if="tandems.length > 0">Tandems [DEPRECIATED]</h3>
-
-<table class="table table-striped table-centered table-bordered" ng-if="tandems.length > 0">
-    <tbody>
-        <tr ng-repeat="tandem in tandems">
-            <td>
-                <div><strong>{{::tandem.name}}</strong></div>
-                <a class="slot medium clickable" decorate-slot uid="uid" clickable="true"
-                    ui-sref="main.search.view({ id: uid, previous: getPrevious() })"
-                    ng-repeat="uid in tandem.units track by $index"></a>
-                <div>{{::tandem.desc}}</div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
 <!-- Drops -->
-
 <h3 class="page-header" ng-if="drops.length > 0">Drop Locations</h3>
 
 <span ng-show="!collapsed.drops" class="drop-warning">
@@ -1596,31 +1577,9 @@
     </table>
 </div>
 
-<!-- Other Names -->
-
-<h3 class="page-header">Other Names</h3>
-
-<add-names></add-names>
-
 <!-- Tags -->
-
 <h3 id="tagsSection" class="page-header">Tags</h3>
-
 <add-tags></add-tags>
-
-<!-- Links -->
-
-<br />
-<h3 class="page-header">Links</h3>
-
-<add-links></add-links>
-
-<!-- Data gathering -->
-
-<div ng-if="!unit.incomplete && unit.growth.atk === 0" class="alert alert-success"><i class="fa fa-star"></i> Have this
-    unit? Please take a look at <a href="../damage/#/gather">this</a>.</div>
-
-</div>
 
 <div class="modal-footer">
     <div class="btn-group">

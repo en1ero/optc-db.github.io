@@ -363,7 +363,6 @@
 						minCP: null, // piratefest2 ? piratefest2[3] : null,
 						maxCP: null, // piratefest2 ? piratefest2[4] : null,
 				  },
-			aliases: window.aliases[n + 1] ? window.aliases[n + 1].join(" ") : "",
 			families:
 				(window.families &&
 					window.families[n + 1] &&
@@ -396,8 +395,6 @@
 			fullNames = units.map(function (x, n) {
 				if (!x.name) return null;
 				let fullName = x.name;
-				if (window.aliases && window.aliases[n + 1])
-					fullName += ", " + window.aliases[n + 1].join(", ");
 				if (window.families && window.families[n + 1])
 					fullName += ", " + window.families[n + 1].join(", ");
 				return fullName;
@@ -445,7 +442,6 @@
 		let matchers = [];
 		let params = { matchers: {} };
 		let whitespaceRegex = /\s+/g;
-		let aliasesRegex = /\s+\(.*?\)/g; // Denjiro (Kyoshiro)
 		let specialCharactersRegex = /[*+?^${}()|[\]\\]/g; //except dot, no need to escape
 		let costRegex = /characters with cost (\d+) or (less|more)/i;
 		let typeRegex = /\[(STR|DEX|QCK|PSY|INT)\]/i;
@@ -480,7 +476,6 @@
 				};
 			};
 		} else {
-			criteria = criteria.replace(aliasesRegex, "");
 			let terms = criteria.split(separatorRegex);
 			for (let term of terms) {
 				let typeMatch = term.match(typeRegex);

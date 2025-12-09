@@ -407,7 +407,6 @@
       }
       $scope.usedBy = CharUtils.searchEvolverEvolutions(id);
       $scope.drops = CharUtils.searchDropLocations(id);
-      $scope.tandems = CharUtils.searchTandems(id);
       $scope.manuals = CharUtils.searchDropLocations(-id);
       $scope.sameSpecials = CharUtils.searchSameSpecials(id);
       $scope.collapsed = {

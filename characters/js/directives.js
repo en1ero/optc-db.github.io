@@ -510,40 +510,6 @@
 		};
 	};
 
-	directives.addNames = function ($stateParams, $rootScope) {
-		var name = window.aliases;
-		return {
-			restrict: "E",
-			replace: true,
-			template:
-				'<table class="table table-striped-column abilities"><tbody></tbody></table>',
-			link: function (scope, element, attrs) {
-				var id = $stateParams.id,
-					data = details[id];
-				var htmlToAppend = "";
-				var currentAliases = name[id];
-				if (currentAliases[0] != "") {
-					htmlToAppend +=
-						"<tr><td>Japanese</td><td><div>" +
-						currentAliases[0] +
-						"</div></td></tr>";
-				}
-				if (currentAliases[1] != "") {
-					htmlToAppend +=
-						"<tr><td>French</td><td><div>" +
-						currentAliases[1] +
-						"</div></td></tr>";
-				}
-				if (currentAliases[2]) {
-					var otherAliases = currentAliases.slice(2).join(", ");
-					htmlToAppend +=
-						"<tr><td>Others</td><td><div>" + otherAliases + "</div></td></tr>";
-				}
-				element.append(htmlToAppend);
-			},
-		};
-	};
-
 	directives.addTags = function ($stateParams, $rootScope) {
 		return {
 			restrict: "E",
@@ -844,19 +810,6 @@
 							)
 						);
 					}
-				}
-				if (gw[id - 1] != null) {
-					ul.append(
-						$(
-							'<li><a href="http://xn--pck6bvfc.gamewith.jp/article/show/' +
-								gw[id - 1] +
-								'" target="_blank">' +
-								'GameWith Page (Japanese)</a> | <a href="http://translate.google.com/translate?sl=ja&tl=en&u=http://xn--pck6bvfc.gamewith.jp/article/show/' +
-								gw[id - 1] +
-								'" target="_blank">' +
-								"Google Translate</a></li>"
-						)
-					);
 				}
 				if (ul.children().length > 0) element.append(ul);
 			},

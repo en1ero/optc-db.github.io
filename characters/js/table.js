@@ -34,7 +34,7 @@
     };
 
     var fuse = new Fuse(window.units, {
-      keys: ["name", "aliases"],
+      keys: ["name"],
       id: "number",
       threshold: 0.3,
       distance: 200,
