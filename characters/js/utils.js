@@ -132,12 +132,6 @@ CharUtils.searchDropLocations = function(id) {
             if (temp.length > 0) {
                 temp.sort();
                 var name = window.drops[type][island].name;
-                /*if (type == 'Fortnight') name += ' Fortnight';
-                else if (type == 'Raid') name += ' Raid';
-                else if (type == 'Coliseum') name += ' Coliseum';
-                else if (type == 'Arena') name += ' Arena';
-                else if (type == 'Treasure Map') name += ' Treasure Map';
-                else if (type == 'Kizuna Clash') name += ' Kizuna';*/
                 var data = { name: name + " | " + type, thumb: window.drops[type][island].thumb, data: temp };
                 if (type == 'Story Island' || window.drops[type][island].hasOwnProperty('day'))
                     data.bonuses = CharUtils.getIslandBonuses(island, window.drops[type][island].day);
@@ -480,7 +474,6 @@ CharUtils.checkSubmatcher = function(target, submatcher, matchObj, cacheKey, id)
 
             capturedValue = Number(capturedValue);
             if (isNaN(capturedValue)) { // if the regex group catches a non-numerical string
-                console.error(`${matchObj[groupIndex]} is not a number. \nMatcher Name: ${cacheKey}\nGroup Index: ${groupIndex}`)
                 continue;
             }
 

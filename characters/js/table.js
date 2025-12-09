@@ -12,10 +12,6 @@
 
     var addImage = function (data, type, row, meta) {
       if (type == "display") {
-        // return '<img class="slot small" data-original="' + Utils.getThumbnailUrl(row[0], '..') + '"> ' +
-        //     //return '<img class="slot small" data-original="' + Utils.getGlobalThumbnailUrl(row[0]) + '" onerror="this.onerror=null;this.src=\'' + Utils.getThumbnailUrl(row[0], '..') + '\';"> ' +
-        //     '<a ui-sref="main.search.view({ id: ' + parseInt(row[0],10) + '})">' + data + '</a>';
-
         return (
           '<img class="slot small" data-original="' +
           Utils.getThumbnailUrl(row[0], "..") +

@@ -261,12 +261,6 @@
       $storage,
       $http
     ) {
-      var rumbleRequest = {
-        method: "get",
-        url: "../common/data/rumble.json",
-        dataType: "json",
-        contentType: "application/json",
-      };
 
       $scope.rumble = undefined;
 

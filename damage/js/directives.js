@@ -856,16 +856,6 @@ directives.levelSlider = function($timeout) {
                 element.trigger('configure',{ max: value });
                 if (value < currentValue) update(value);
             };
-            var slider = element.knob({
-                width: 88,
-                height: 88,
-                angleOffset: -120,
-                angleArc: 240,
-                release: onRelease,
-                change: function(value) { immediateValue = value; },
-                min: 1,
-                max: 150
-            });
             scope.$watch('data.team[slot].unit.maxLevel + [0, 6, 11, 21, 31, 51][data.team[slot].llimit]',updateMax);
             scope.$watch('data.team[slot].level',update);
             element.parent().on('click touchend',function(e) {
@@ -1384,16 +1374,6 @@ directives.candySlider = function($compile, $timeout) {
                 input.val(currentValue).trigger('change');
                 scope.actualBonus = currentValue * { hp: 5, atk: 2, rcv: 1 }[scope.type];
             };
-            var slider = input.knob({
-                width: 112,
-                height: 112,
-                min: 0,
-                max: 100,
-                angleOffset: 20,
-                angleArc: 320,
-                release: update,
-                fgColor: { hp: '#fcac68', atk: '#fb6f64', rcv: '#7feb9f' }[scope.type]
-            });
             input.val(currentValue).trigger('change');
             element.append($compile('<span class="candyLabel">+{{actualBonus}} ' + scope.type.toUpperCase() + '</span>')(scope));
             scope.$watch('data',updateMax,true);
