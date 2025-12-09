@@ -15,7 +15,6 @@ UnitUtils.extendDouble = function(state, baseid, type) {
             else types.push("combined", "combined");
         }
     }
-    //if (type == "vs") console.log(baseid, types, window.units[baseid - 1][1], Array.isArray(window.units[baseid - 1][1]));
     for(var i in types) {
         newId = state["start"]+state["increment"];
         window.details[newId] = Object.assign({},window.details[baseid]);

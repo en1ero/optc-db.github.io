@@ -66,7 +66,6 @@ window.altspecials = {
     2245: {
         turnedOn: [ false, false, false, false, false, false ],
         onActivation: function(p) {
-            console.log(p);
             window.altspecials[p.team[p.sourceSlot].unit.number+1].turnedOn[p.sourceSlot] = true;
         },
         onDeactivation: function(p) {

@@ -69,7 +69,6 @@
 							while ((classes.match(new RegExp(",", "g")) || []).length >= 1)
 								classes = classes.replace(",", "/");
 							var classess = classes.split("/");
-							//console.log(classess);
 							var classesHtml =
 								'<span class="cell-' +
 								classess[classess.length - 2] +

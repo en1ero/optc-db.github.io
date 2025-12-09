@@ -257,27 +257,11 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
                 }
             }
         }
-        //console.log(overallDamage);
         // return results
         for (var l=0;l<overallDamage.damage.length;++l) {
             overallDamage.damage[l].multipliers = overallDamage.damage[l].multipliers.filter(function(x) { return x[0] != 1; });
             overallDamage.damage[l].multipliers.sort(function(x,y) { return x[1].localeCompare(y[1]); });
         }
-        /*console.log(overallDamage);
-        for(var key in overallDamage.damage){
-            if(parseInt(key)){
-                console.log(overallDamage.damage[key].position);
-                if((overallDamage.damage[key].unit.unit.number == 2232 || overallDamage.damage[key].unit.unit.number == 2233) && overallDamage.damage[key].position < 2 && $scope.tdata.semlaCounter.value >= 3 && parseInt(key) != 5){
-                    var temp = overallDamage.damage[key];
-                    var m = parseInt(key);
-                    while(m < 5){
-                        overallDamage.damage[toString(m)] = overallDamage.damage[toString(m + 1)];
-                        m++;
-                    }
-                    overallDamage.damage['5'] = temp;
-                }
-            }
-        }*/
         return overallDamage;
     };
 
@@ -547,7 +531,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
         // apply chain and bonus multipliers
         result = applyChainAndBonusMultipliers(result,hitModifiers,type);
         if (mapEffect.damage) result.result = applyEffectDamage(result.result, mapEffect.damage);  
-        //console.log(result);
         
         var overallDamage = result.result.reduce(function(prev,x) { return prev + x.damage; },0);
         
@@ -890,9 +873,7 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
         for (var i=0;i<hitModifiers.length;++i) {
             // only params.sugarToy (specified unit) becomes false when sugarToysSpecialEnabled is false
             // sugarToy in team does not get affected
-            //console.log(params.team[damage[i].position].unit);
             var params2 = getParameters(damage[i].position, undefined, tapTimingSpecial && tapTimingSpecial.sourceSlot, tapTimingSpecial && tapTimingSpecial.specialType);
-            //console.log(enabledSpecials[0] ? enabledSpecials[0].sourceSlot : 1);
 
             var sugarSuperEnabled = false;
             enabledSpecials.forEach(function(special){ if(params.team[special.sourceSlot].unit.number + 1 == 3805 && special.specialType == "special") sugarSuperEnabled = true; });
@@ -1058,7 +1039,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
                 var chainModifier = cptsWith.chainModifiers.reduce(function(prev,next) {
                     //var params = getParameters(x.position, n);
                     //params["sourceSlot"] = enabledEffects[x].sourceSlot;
-                    //console.log(cptsWith.chainModifiers);
                     return prev * next.chainModifier(getParameters(x.position, n));
                 },1);
                 //Computing Chain Modifier from map effects
@@ -1070,9 +1050,7 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
                     //chain modifier without chain boosting captain
                     chainModifier = Math.min(mapEffect.chainModifier(params[n]), chainModifier);
                     }
-                //console.log(x,n);
 
-                //console.log(params[n].hitcombo);
                 var chainUpgrade = 0;
                 var chainOverride = 0;
                 plusSpecials.forEach(function(plusSpecial){
@@ -1155,7 +1133,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
                     // get highest buff increase
                     plusSpecials.forEach(function(plusSpecial) {
                         plusParams = getParameters(plusSpecial.sourceSlot, undefined, plusSpecial.sourceSlot, plusSpecial.specialType);
-                        //console.log(plusSpecial);
                         if(plusSpecial.hasOwnProperty('atkPlus')){
                             if(plusSpecial.atkPlus(plusParams) > atkPlusTemp)
                                 atkPlusTemp = plusSpecial.atkPlus(plusParams);
@@ -1178,7 +1155,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
                     
                     enabledEffects.forEach(function(plusEffect) {
                         plusParams = getParameters(plusEffect.sourceSlot, undefined, plusEffect.sourceSlot, plusEffect.specialType);
-                        //console.log(plusSpecial);
                         if(plusEffect.hasOwnProperty('atkPlus')){
                             atkPlusTemp += data.specialType == "special" ? plusEffect.atkPlus(plusParams) : 0;
                         }
@@ -1465,7 +1441,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
                     var slot = enabledSpecials[y].sourceSlot;
                     params.sourceSlot = slot;
                     params.cached = getCachedParameters(slot, enabledSpecials[y].specialType);
-                    //console.log(params);
                     if (enabledSpecials[y].staticMult(params) >= multSpecial){
                         specialid = team[slot].unit.number + 1;
                         multSpecial = enabledSpecials[y].staticMult(params);
@@ -1694,7 +1669,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
         computeSpecialsCombinations();
         $scope.conflictingSpecials = (specialsCombinations.length > 1 || chainSpecials.length > 1 || chainAddition.length > 1 || affinityMultiplier.length > 1 || atkbase.length > 1);
         $scope.conflictingMultipliers = ( staticMultiplier.length > 1 )
-        //console.log(enabledSpecials);
     };
 
     /**
@@ -1925,15 +1899,6 @@ var CruncherCtrl = function($scope, $rootScope, $timeout) {
             else
             cloneUnit.class = $scope.data.cloneCrewClass1 ? [ $scope.data.cloneCrewClass1, $scope.data.cloneCrewClass2 ] : cloneUnit.class;
         }
-    };
-
-    var classOverrideReplace = function(cloneUnit){
-        //cloneUnit.type = $scope.data.cloneFCType ? $scope.data.cloneFCType : cloneUnit.type;
-        //if($scope.data.cloneFCClass1 == $scope.data.cloneFCClass2 || !$scope.data.cloneFCClass2 && $scope.data.cloneFCClass1)
-        //    cloneUnit.class = $scope.data.cloneFCClass1 ? $scope.data.cloneFCClass1 : cloneUnit.class;
-        //else
-        //    cloneUnit.class = $scope.data.cloneFCClass1 ? [ $scope.data.cloneFCClass1, $scope.data.cloneFCClass2 ] : cloneUnit.class;
-        console.log("Not Yet Implemented")
     };
 
     /**

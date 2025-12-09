@@ -97,14 +97,7 @@
 							)
 						)
 							keylevel = x;
-					//console.log(keylevel, n+1);
 					for (var x in window.details[n + 1].limit) {
-						//matchHP = window.details[n + 1].limit[x].description.search(/^Boosts base HP by (\d+)/);
-						//matchATK = window.details[n + 1].limit[x].description.search(/^Boosts base ATK by (\d+)/);
-						//matchRCV = window.details[n + 1].limit[x].description.search(/^Boosts base RCV by (\d+)/);
-						//matchCD = window.details[n + 1].limit[x].description.search(/^Reduce base Special Cooldown by (\d+)/);
-						//matchHP = window.details[n + 1].limit[x].description.search(/^Acquire (\d+) additional Socket slot/);
-
 						if (parseInt(x) < keylevel) {
 							if (
 								window.details[n + 1].limit[x].description.includes(
@@ -3332,7 +3325,6 @@
 				} else {
 					result.matchers[temp[2]] = new RegExp(temp[3], "i");
 				}
-				//console.log(result.matchers); //Here for stuff to try to do custom
 			}
 		});
 		if (result.query.length > 0) result.query = result.query.join(" ");

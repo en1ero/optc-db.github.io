@@ -9330,8 +9330,6 @@ window.specials = {
             window.specials[2887].boostATK[p.slot] = window.specials[2887].turnedOn ? [2, 1, 1, 1][window.specials[2887].switch[p.slot]] : 1;
             window.specials[2887].boostOrb[p.slot] = [1, 1.75, 2, 2.25][window.specials[2887].switch[p.slot]];
             
-            //console.log(window.specials[2887].boostOrb);
-            //console.log(window.specials[2887].boostATK);
             p.scope.notify({
                 text: 'Using the ' + ['2x ATK Boost', '1.75x Orb Boost', '2x Orb Boost', '2.25x Orb Boost'][window.specials[2887].switch[p.slot]] + '. To switch to the ' + ['1.75x Orb Boost', '2x Orb Boost', '2.25x Orb Boost', '2x ATK Boost'][window.specials[2887].switch[p.slot]] + ', disable and re-enable this special',
                 name: (p.team[p.sourceSlot].unit.number+1).toString() + 'warning'
@@ -9900,8 +9898,6 @@ window.specials = {
             window.specials[2996].boostAffinity[p.slot] = window.specials[2996].turnedOn ? [2.25, 1, 1, 1][window.specials[2996].switch[p.slot]] : 1;
             window.specials[2996].boostATK[p.slot] = [1, 1.75, 2, 2.25][window.specials[2996].switch[p.slot]];
             
-            //console.log(window.specials[2996].boostATK);
-            //console.log(window.specials[2996].boostAffinity);
             p.scope.notify({
                 text: 'Using the ' + ['2.25x Affinity Boost', '1.75x ATK Boost', '2x ATK Boost', '2.25x ATK Boost'][window.specials[2996].switch[p.slot]] + '. To switch to the ' + ['1.75x ATK Boost', '2x ATK Boost', '2.25x ATK Boost', '2.25x Affinity Boost'][window.specials[2996].switch[p.slot]] + ', disable and re-enable this special',
                 name: (p.team[p.sourceSlot].unit.number+1).toString() + 'warning'
@@ -17158,7 +17154,6 @@ window.specials = {
         orbPlus: function(p) { return [0.25, 0.5][p.cached.multiplier]; },
         statusPlus: function(p) { return [0.25, 0.5][p.cached.multiplier]; },
         onActivation: function(p) {
-            console.log(p);
             var levels = [0.25, 0.5];
             var n = (levels.indexOf(p.cached.multiplier) + 1) % levels.length;
             p.cached.multiplier = levels[n];

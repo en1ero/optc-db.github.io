@@ -319,7 +319,6 @@ window.effects = {
                             if(p.class.constructor === String){
                                 if(!(p.class.has('Cerebral') || p.class.has('Free Spirit'))){ boost5 = 0.5}
                             }
-                            //console.log(boost1+" "+boost2+" "+boost3+" "+boost4+" "+boost5)
                             return 1*boost1*boost2*boost3*boost4*boost5; 
                         },
         hp: function(p) {
