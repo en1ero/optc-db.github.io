@@ -96,32 +96,18 @@ body {
     }
 }
 
-.green  { background-color: #7FCA9F; }
-.blue   { background-color: #85C1F5; }
-.red    { background-color: #E96D63; }
-.purple { background-color: #DA70D6; }
-.yellow { background-color: #F4BA70; }
-.pink   { background-color: #DEA5A4; }
-.brown   { background-color: #993300; }
-.darkpurple   { background-color: #7D3C98; }
-.gold   { background-color: #B38F15; }
-.darkblue   { background-color: #183578; }
-.limegreen   { background-color: #32CD32; }
-.darkorange   { background-color: #CF5300; }
+.blue { background-color: #85C1F5; }
+.green { background-color: #7FCA9F; }
+.darkpurple { background-color: #7D3C98; }
+.limegreen { background-color: #32CD32; }
+.darkorange { background-color: #CF5300; }
 
 @media (hover) {
-    .green:hover  { background-color: #6EB98E; }
-    .blue:hover   { background-color: #74B0E4; }
-    .red:hover    { background-color: #D85C52; }
-    .purple:hover { background-color: #C96995; }
-    .yellow:hover { background-color: #E3A969; }
-    .pink:hover   { background-color: #A57777; }
-    .brown:hover   { background-color: #662200; }
-    .darkpurple:hover   { background-color: #5B2C6F; }
-    .gold:hover   { background-color: #947713; }
-    .darkblue:hover   { background-color: #092056; }
-    .limegreen:hover   { background-color: #228B22; }
-    .darkorange:hover   { background-color: #B54C05; }
+    .blue:hover { background-color: #74B0E4; }
+    .green:hover { background-color: #6EB98E; }
+    .darkpurple:hover { background-color: #5B2C6F; }
+    .limegreen:hover { background-color: #228B22; }
+    .darkorange:hover { background-color: #B54C05; }
 }
 
 .overlay {
