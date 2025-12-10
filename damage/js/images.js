@@ -145,10 +145,6 @@ app.controller('ImageGeneratorCtrl', function($scope, $filter, $timeout) {
                 }
             };
             image.src = Utils.getThumbnailUrl(unit.number + 1, '..');
-            //image.src = Utils.getGlobalThumbnailUrl(unit.number + 1);
-            //image.onerror = function(){
-            //    image.src = Utils.getThumbnailUrl(unit.number + 1, '..');
-            //}
         });
     },true);
 

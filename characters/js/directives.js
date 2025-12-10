@@ -157,7 +157,6 @@
 				else
 					element[0].style.backgroundImage =
 						"url(" + Utils.getThumbnailUrl(scope.uid, "..") + ")";
-				//element[0].style.backgroundImage = 'url(' + Utils.getGlobalThumbnailUrl(scope.uid) + '), url(' + Utils.getThumbnailUrl(scope.uid, '..') + ')';
 			},
 		};
 	};
@@ -1154,6 +1153,32 @@
 			}`;
 		return retVal;
 	}
+
+	// Staged ability directive for Limit Break and Potential Abilities
+	directives.stagedAbility = function() {
+		return {
+			scope: {
+				ability: '=',      // The ability data to display
+				isStaged: '=',    // Whether the ability has stages
+				type: '@',        // Type of ability (e.g., 'limit', 'potential')
+				notes: '=?'       // Optional notes for the ability
+			},
+			template: `
+				<div ng-if="!isStaged" ng-bind-html="ability | decorate"></div>
+				<div ng-if="isStaged">
+					<div ng-repeat="stage in ability track by $index">
+						<strong ng-if="type === 'limit'">Level {{::$index + 1}}:</strong>
+						<strong ng-if="type === 'potential'">
+							<span ng-if="stage.Name" ng-bind-html="stage.Name | decorate"></span>
+							<span ng-if="!stage.Name">Potential Ability {{::$index + 1}}:</span>
+						</strong>
+						<span ng-bind-html="type === 'potential' ? (stage.description ? stage.description[$index] : stage[$index]) : stage.description | decorate"></span>
+					</div>
+				</div>
+				<span class="notes" ng-if="notes" ng-bind-html="notes | notes | decorate"></span>
+			`
+		};
+	};
 
 	/******************
 	 * Initialization *

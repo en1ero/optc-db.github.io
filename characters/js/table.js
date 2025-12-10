@@ -1,8 +1,6 @@
 (function () {
   angular.module("optc").run(function ($rootScope, $timeout, $storage) {
-    /**************
-     * Table data *
-     **************/
+    //Table data
 
     var additionalColumns = $storage.get("charColumns", []);
 
@@ -45,10 +43,7 @@
     var characterLog = {};
     for (var i = 0; i < log.length; ++i) characterLog[log[i]] = true;
 
-    /*******************
-     * Table functions *
-     *******************/
-
+//Table functions
     var getTableColumns = function () {
       var result = [
         { title: "ID" },
@@ -78,18 +73,15 @@
       return result;
     };
 
-    /*******************
-     * Table filtering *
-     *******************/
-
+      
+     //Table filtering
     var tableFilter = function (settings, data, index) {
       if (!tableData.parameters) return true;
       var id = parseInt(data[0], 10),
         unit = window.units[id - 1];
       var flags = window.flags[unit.number + 1] || {};
 
-      /* * * * * Query filters * * * * */
-
+      //Query filters
       // override `queryTerms` checking if fuzzy mode is enabled
       let tempParams = { ...tableData.parameters };
       if (tableData.fuzzy) {
@@ -103,11 +95,10 @@
 
       if (!Utils.checkUnitMatchSearchParameters(unit, tempParams)) return false;
 
-      /* * * * * Sidebar filters * * * * */
+      //Sidebar filters
       if (!tableData.parameters.filters) return true;
       var filters = tableData.parameters.filters;
       // filter by type
-      //if (filters.type && unit.type !== filters.type) return false;
       if (filters.types && filters.types.length) {
         if (!Array.isArray(unit.type))
           if (!filters.types.includes(unit.type)) return false;
@@ -1173,10 +1164,7 @@
       return true;
     };
 
-    /*****************
-     * Table sorting *
-     *****************/
-
+    //Table sorting
     jQuery.fn.dataTable.ext.type.order["num-string-asc"] = function (x, y) {
       if (x && x.constructor == String) x = x == "Unknown" ? 100 : 101;
       if (y && y.constructor == String) y = y == "Unknown" ? 100 : 101;
@@ -1189,10 +1177,7 @@
       return y - x;
     };
 
-    /***********************
-     * Table configuration *
-     ***********************/
-
+    //Table configuration
     var data = window.units
       .filter(function (x) {
         return x.name && !x.name.includes("⚔") && !x.name.includes("⚐");
@@ -1342,18 +1327,6 @@
 
     $rootScope.$on("table.refresh", function () {
       fused = null;
-      /*var types = {
-        'STR' : '<span class="cell-STR">STR</span>',
-        'DEX' : '<span class="cell-DEX">DEX</span>',
-        'QCK' : '<span class="cell-QCK">QCK</span>',
-        'PSY' : '<span class="cell-PSY">PSY</span>',
-        'INT' : '<span class="cell-INT">INT</span>'};
-        $.each(types,function(i,type1){
-            $.each(types,function(j,type2){
-            if(i == j) return;
-            $('.cell-'+i+'\\/'+j).html(type1 +'/'+type2);
-          });
-        });*/
     });
 
     $rootScope.checkLog = function () {

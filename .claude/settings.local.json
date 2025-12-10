@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:thepiebandit.github.io)",
+      "Bash(curl:*)",
+      "Bash(git checkout:*)",
+      "Bash(python3:*)",
+      "Bash(git apply:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
