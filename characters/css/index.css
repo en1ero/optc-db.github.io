@@ -735,32 +735,6 @@ input#burgerMenuState {
     margin: 0;
 }
 
-.comparer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.comparer .compare-clear {
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-@media (hover) {
-    .comparer .compare-clear:hover {
-        color: red;
-    }
-}
-
-#compare {
-    width: 250px;
-}
-
-#compare + pre {
-    display: none;
-}
-
 .tt-menu {
     background: white;
     font-size: 80%;
@@ -805,20 +779,6 @@ input#burgerMenuState {
 .tt-suggestion span {
     display: table-cell;
     vertical-align: middle;
-}
-
-.positive, .positive.withPlus:before {
-    color: green;
-    font-weight: bold;
-}
-
-.negative, .negative.withPlus:before {
-    color: red;
-    font-weight: bold;
-}
-
-.withPlus:before {
-    content: '+';
 }
 
 /***********
